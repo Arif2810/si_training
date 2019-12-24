@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2019 at 04:30 PM
--- Server version: 10.3.16-MariaDB
--- PHP Version: 7.1.30
+-- Generation Time: Dec 24, 2019 at 06:54 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.1.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `agamas` (
   `id_agama` int(10) UNSIGNED NOT NULL,
   `nama_agama` varchar(20) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -53,9 +53,9 @@ INSERT INTO `agamas` (`id_agama`, `nama_agama`, `created_at`, `updated_at`) VALU
 --
 
 CREATE TABLE `categories` (
-  `id_kategori` int(10) NOT NULL,
+  `id_kategori` int(10) UNSIGNED NOT NULL,
   `nama_kategori` varchar(100) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -79,12 +79,11 @@ CREATE TABLE `employees` (
   `sap` char(7) NOT NULL,
   `nama_karyawan` varchar(50) NOT NULL,
   `id_gender` int(10) UNSIGNED NOT NULL,
-  `tgl_lahir` date NOT NULL,
   `tgl_daftar` date NOT NULL,
   `id_agama` int(10) UNSIGNED DEFAULT NULL,
   `alamat` varchar(255) DEFAULT NULL,
   `telp` varchar(20) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -92,10 +91,12 @@ CREATE TABLE `employees` (
 -- Dumping data for table `employees`
 --
 
-INSERT INTO `employees` (`id_karyawan`, `sap`, `nama_karyawan`, `id_gender`, `tgl_lahir`, `tgl_daftar`, `id_agama`, `alamat`, `telp`, `created_at`, `updated_at`) VALUES
-(9, '1234567', 'Karyawan A', 1, '1980-09-23', '2009-11-18', 1, 'Jl. Indah Kasih', '08123123', '2019-11-18 03:26:05', '2019-11-18 15:30:19'),
-(10, '123456', 'Karyawan B', 1, '1988-08-21', '2010-11-18', 1, 'Jl. 2', '08765456', '2019-11-18 03:27:39', '2019-11-18 03:27:39'),
-(12, '0987654', 'Karyawan E', 1, '1980-10-10', '2000-11-18', 1, 'Jn. Permai', '0567654343', '2019-11-18 07:01:38', '2019-11-18 07:01:38');
+INSERT INTO `employees` (`id_karyawan`, `sap`, `nama_karyawan`, `id_gender`, `tgl_daftar`, `id_agama`, `alamat`, `telp`, `created_at`, `updated_at`) VALUES
+(9, '1234567', 'Karyawan A', 1, '2009-11-18', 1, 'Jl. Indah Kasih', '08123123', '2019-11-18 03:26:05', '2019-11-18 15:30:19'),
+(10, '123456', 'Karyawan B', 1, '2010-11-18', 1, 'Jl. 2', '08765456', '2019-11-18 03:27:39', '2019-11-18 03:27:39'),
+(12, '0987654', 'Karyawan E', 1, '2000-11-18', 1, 'Jn. Permai', '0567654343', '2019-11-18 07:01:38', '2019-11-18 07:01:38'),
+(13, '1234567', 'Karyawan A', 1, '2007-12-18', 1, 'Jl. Satu', '088200110017', '2019-12-18 04:16:51', '2019-12-18 04:16:51'),
+(14, '1234567', 'Karyawan B', 1, '2008-12-18', 1, 'Jl. Dua', '088200110014', '2019-12-18 04:17:28', '2019-12-18 04:17:28');
 
 -- --------------------------------------------------------
 
@@ -107,7 +108,7 @@ CREATE TABLE `galeries` (
   `id_galeri` int(10) NOT NULL,
   `image` varchar(100) NOT NULL,
   `deskripsi` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -120,7 +121,8 @@ INSERT INTO `galeries` (`id_galeri`, `image`, `deskripsi`, `created_at`, `update
 (8, '1574303100.jpg', 'APP Culture House 2', '2019-11-21 02:25:00', '2019-11-21 02:25:00'),
 (9, '1574303157.jpg', 'SIO PAA Group', '2019-11-21 02:25:57', '2019-11-21 02:25:57'),
 (10, '1574303190.jpg', 'SIO PAA Group 2', '2019-11-21 02:26:30', '2019-11-21 02:26:30'),
-(12, '1574303277.jpg', 'Opening GT 4 (2)', '2019-11-21 02:27:57', '2019-11-21 02:27:57');
+(12, '1574303277.jpg', 'Opening GT 4 (2)', '2019-11-21 02:27:57', '2019-11-21 02:27:57'),
+(13, '1576401985.jpg', 'gambar 2', '2019-12-15 09:26:25', '2019-12-15 09:26:25');
 
 -- --------------------------------------------------------
 
@@ -131,7 +133,7 @@ INSERT INTO `galeries` (`id_galeri`, `image`, `deskripsi`, `created_at`, `update
 CREATE TABLE `genders` (
   `id_gender` int(10) UNSIGNED NOT NULL,
   `nama_gender` varchar(100) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -189,9 +191,9 @@ INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
 --
 
 CREATE TABLE `routes` (
-  `id_rute` int(10) NOT NULL,
+  `id_rute` int(10) UNSIGNED NOT NULL,
   `nama_rute` varchar(100) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -212,13 +214,12 @@ INSERT INTO `routes` (`id_rute`, `nama_rute`, `created_at`, `updated_at`) VALUES
 CREATE TABLE `schedules` (
   `id_jadwal` int(10) UNSIGNED NOT NULL,
   `id_karyawan` int(10) UNSIGNED NOT NULL,
-  `judul` varchar(100) NOT NULL,
-  `id_rute` int(10) NOT NULL,
+  `id_rute` int(10) UNSIGNED NOT NULL,
   `tgl_training` date NOT NULL,
-  `id_kategori` int(10) NOT NULL,
-  `id_venue` int(10) NOT NULL,
+  `id_kategori` int(10) UNSIGNED NOT NULL,
+  `id_venue` int(10) UNSIGNED NOT NULL,
   `ket` varchar(300) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -226,10 +227,10 @@ CREATE TABLE `schedules` (
 -- Dumping data for table `schedules`
 --
 
-INSERT INTO `schedules` (`id_jadwal`, `id_karyawan`, `judul`, `id_rute`, `tgl_training`, `id_kategori`, `id_venue`, `ket`, `created_at`, `updated_at`) VALUES
-(1, 10, 'Bekerja dengan efisien', 3, '2019-11-26', 2, 3, 'jam 7 sampai jam 9', '2019-11-19 15:36:07', '0000-00-00 00:00:00'),
-(3, 9, 'Training 1', 3, '2019-11-23', 1, 4, 'durasi 2 jam', '2019-11-19 17:13:10', '2019-11-19 17:13:10'),
-(4, 9, 'Training 2', 3, '2019-11-24', 4, 1, 'jam 15.00 - 17.00', '2019-11-20 00:43:01', '2019-11-20 00:43:01');
+INSERT INTO `schedules` (`id_jadwal`, `id_karyawan`, `id_rute`, `tgl_training`, `id_kategori`, `id_venue`, `ket`, `created_at`, `updated_at`) VALUES
+(1, 10, 3, '2019-11-26', 2, 3, 'jam 7 sampai jam 9', '2019-11-19 15:36:07', '0000-00-00 00:00:00'),
+(3, 9, 3, '2019-11-23', 1, 4, 'durasi 2 jam', '2019-11-19 17:13:10', '2019-11-19 17:13:10'),
+(4, 9, 3, '2019-11-24', 4, 1, 'jam 15.00 - 17.00', '2019-11-20 00:43:01', '2019-11-20 00:43:01');
 
 -- --------------------------------------------------------
 
@@ -265,9 +266,9 @@ INSERT INTO `users` (`id`, `name`, `username`, `email`, `akses`, `password`, `re
 --
 
 CREATE TABLE `venues` (
-  `id_venue` int(10) NOT NULL,
+  `id_venue` int(10) UNSIGNED NOT NULL,
   `nama_venue` varchar(100) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -298,7 +299,8 @@ ALTER TABLE `agamas`
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
-  ADD PRIMARY KEY (`id_kategori`);
+  ADD PRIMARY KEY (`id_kategori`),
+  ADD KEY `id_kategori` (`id_kategori`);
 
 --
 -- Indexes for table `employees`
@@ -339,7 +341,8 @@ ALTER TABLE `password_resets`
 -- Indexes for table `routes`
 --
 ALTER TABLE `routes`
-  ADD PRIMARY KEY (`id_rute`);
+  ADD PRIMARY KEY (`id_rute`),
+  ADD KEY `id_rute` (`id_rute`);
 
 --
 -- Indexes for table `schedules`
@@ -349,7 +352,11 @@ ALTER TABLE `schedules`
   ADD KEY `id_tindakan` (`id_karyawan`),
   ADD KEY `id_pasien` (`tgl_training`),
   ADD KEY `id_tindakan_2` (`id_karyawan`),
-  ADD KEY `id_mr` (`id_jadwal`);
+  ADD KEY `id_mr` (`id_jadwal`),
+  ADD KEY `tgl_training` (`tgl_training`),
+  ADD KEY `id_kategori` (`id_kategori`),
+  ADD KEY `id_rute` (`id_rute`),
+  ADD KEY `id_venue` (`id_venue`);
 
 --
 -- Indexes for table `users`
@@ -362,7 +369,8 @@ ALTER TABLE `users`
 -- Indexes for table `venues`
 --
 ALTER TABLE `venues`
-  ADD PRIMARY KEY (`id_venue`);
+  ADD PRIMARY KEY (`id_venue`),
+  ADD KEY `id_venue` (`id_venue`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -378,19 +386,19 @@ ALTER TABLE `agamas`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id_kategori` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_kategori` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id_karyawan` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_karyawan` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `galeries`
 --
 ALTER TABLE `galeries`
-  MODIFY `id_galeri` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_galeri` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `genders`
@@ -408,7 +416,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `routes`
 --
 ALTER TABLE `routes`
-  MODIFY `id_rute` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_rute` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `schedules`
@@ -426,7 +434,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `venues`
 --
 ALTER TABLE `venues`
-  MODIFY `id_venue` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_venue` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
@@ -438,6 +446,14 @@ ALTER TABLE `venues`
 ALTER TABLE `employees`
   ADD CONSTRAINT `employees_ibfk_1` FOREIGN KEY (`id_agama`) REFERENCES `agamas` (`id_agama`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `employees_ibfk_2` FOREIGN KEY (`id_gender`) REFERENCES `genders` (`id_gender`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `schedules`
+--
+ALTER TABLE `schedules`
+  ADD CONSTRAINT `schedules_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `categories` (`id_kategori`),
+  ADD CONSTRAINT `schedules_ibfk_2` FOREIGN KEY (`id_rute`) REFERENCES `routes` (`id_rute`),
+  ADD CONSTRAINT `schedules_ibfk_3` FOREIGN KEY (`id_venue`) REFERENCES `venues` (`id_venue`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

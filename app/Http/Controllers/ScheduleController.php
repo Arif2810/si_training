@@ -52,7 +52,6 @@ class ScheduleController extends Controller
         $schedules = new Schedule;
 
         $schedules->id_karyawan = $request->id_karyawan;
-        $schedules->judul = $request->judul;
         $schedules->id_rute = $request->id_rute;
         $schedules->tgl_training = $request->tgl_training;
         $schedules->id_kategori = $request->id_kategori;
@@ -101,7 +100,6 @@ class ScheduleController extends Controller
         $schedules = Schedule::find($id_jadwal);
 
         $schedules->id_karyawan = $request->id_karyawan;
-        $schedules->judul = $request->judul;
         $schedules->id_rute = $request->id_rute;
         $schedules->tgl_training = $request->tgl_training;
         $schedules->id_kategori = $request->id_kategori;

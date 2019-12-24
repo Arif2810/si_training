@@ -52,10 +52,6 @@
                   	<td>{{ $employees->genders->nama_gender }}</td>
                   </tr>
                   <tr>
-                  	<th class="col-md-2">Tanggal Lahir</th>
-                  	<td>{{ $employees->tgl_lahir }}</td>
-                  </tr>
-                  <tr>
                   	<th class="col-md-2">Tanggal Masuk Kerja</th>
                   	<td>{{ $employees->tgl_daftar }}</td>
                   </tr>

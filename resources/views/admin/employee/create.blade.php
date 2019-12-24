@@ -57,10 +57,6 @@
 											<input type="radio" name="jk" value="perempuan"> Perempuan -->
 										</div><br>
 										<div>
-											<label>Tanggal Lahir</label>
-											<input class="form-control" type="date" name="tgl_lahir">
-										</div><br>
-										<div>
 											<label>Tanggal Masuk</label>
 											<input required="" class="form-control" type="date" name="tgl_daftar" value="<?=date('Y-m-d')?>">
 										</div><br>

@@ -49,7 +49,7 @@
                   </tr>
                   <tr>
                     <th class="col-md-2">Judul</th>
-                    <td><p>{{ $schedules->judul }}</p></td>                                  
+                    <td><p>{{ $schedules->categories->nama_kategori }}</p></td>                                  
                   </tr>
                   <tr>
                     <th class="col-md-2">Rute</th>
@@ -58,10 +58,6 @@
                   <tr>
                     <th class="col-md-2">Tanggal Training</th>
                     <td><p>{{ $schedules->tgl_training }}</p></td>                                  
-                  </tr>
-                  <tr>
-                  	<th class="col-md-2">Kategori</th>
-                  	<td><p>{{ $schedules->categories->nama_kategori }}</p></td>                                  
                   </tr>
                   <tr>
                     <th class="col-md-2">Venue</th>

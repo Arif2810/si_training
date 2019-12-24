@@ -47,10 +47,6 @@
 										{{ Form::select('id_gender', \App\Gender::pluck('nama_gender', 'id_gender'), NULL, ['class'=>'form-control']) }}
 									</div><br>
 									<div>
-										<label>Tanggal Masuk Kerja</label>
-										<input class="form-control" type="date" name="tgl_lahir" value="{{ $employees->tgl_lahir }}">
-									</div><br>
-									<div>
 										<label>Tanggal Daftar</label>
 										<input class="form-control" type="date" name="tgl_daftar" value="{{ $employees->tgl_daftar }}">
 									</div><br>

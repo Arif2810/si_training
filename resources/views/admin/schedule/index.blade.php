@@ -47,7 +47,6 @@
                     <th>No</th>
                     <th>SAPid</th>
                     <th>Employee name</th>
-                    <th>Category</th>
                     <th>Training title</th>
                     <th>Venue</th>
                     <th>Action</th>
@@ -60,7 +59,6 @@
                     <td>{{ $schedules->employees->sap }}</td>
                     <td>{{ $schedules->employees->nama_karyawan }}</td>
                     <td>{{ $schedules->categories->nama_kategori }}</td>
-                    <td>{{ $schedules->judul }}</td>
                     <td>{{ $schedules->venues->nama_venue }}</td>
                     <td>
                       <a href="schedule/{{$schedules->id_jadwal}}/show"><button class="btn btn-primary btn-xs">Detail</button></a>

@@ -45,8 +45,13 @@
 									</div><br>
 
 									<div>
-										<label for="judul">Judul Training</label>
-										<input type="text" class="form-control" name="judul" id="judul">
+										<label for="">Judul Training</label>
+										<select class="form-control" name="id_kategori">
+											<option value="">-- tipe training --</option>
+											@foreach($categories as $categories)
+											<option value="{{$categories->id_kategori}}">{{$categories->nama_kategori}}</option>
+											@endforeach
+										</select>
 									</div><br>
 
 									<div>
@@ -74,15 +79,7 @@
 										</select>
 									</div><br>
 									
-									<div>
-										<label for="">Kategori</label>
-										<select class="form-control" name="id_kategori">
-											<option value="">-- tipe training --</option>
-											@foreach($categories as $categories)
-											<option value="{{$categories->id_kategori}}">{{$categories->nama_kategori}}</option>
-											@endforeach
-										</select>
-									</div><br>
+									
 									
 									<div>
 										<label for="ket">Keterangan</label>

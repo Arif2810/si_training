@@ -49,7 +49,6 @@ class EmployeeController extends Controller
       $employees->sap         = $request->sap;
       $employees->nama_karyawan = $request->nama_karyawan;
       $employees->id_gender   = $request->id_gender;
-      $employees->tgl_lahir   = $request->tgl_lahir;
       $employees->tgl_daftar  = $request->tgl_daftar;
       $employees->id_agama    = $request->id_agama;
       $employees->alamat      = $request->alamat;
@@ -109,7 +108,6 @@ class EmployeeController extends Controller
         $employees->sap           = $request->sap;
         $employees->nama_karyawan = $request->nama_karyawan;
         $employees->id_gender     = $request->id_gender;
-        $employees->tgl_lahir     = $request->tgl_lahir;
         $employees->tgl_daftar    = $request->tgl_daftar;
         $employees->id_agama      = $request->id_agama;
         $employees->alamat        = $request->alamat;
